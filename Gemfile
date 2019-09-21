@@ -68,3 +68,6 @@ gem 'pry-rails'
 gem 'sprockets', '3.7.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+# font-awesome
+gem 'font-awesome-sass', '~> 5.9.0'
