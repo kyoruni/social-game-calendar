@@ -5,7 +5,7 @@
       <%= f.text_field :name,            class: "form-control mb-2", placeholder: "正式名称で入力してください / 例：Fate/Grand Order" %>
 
       <%= f.label :tag_list, '検索用ワード', class: "text-muted mb-1" %>
-      <%= f.text_field :tag_list, value: @game.tag_list.join(','), class: "form-control mb-2", placeholder: "カンマ区切りで略称等を入力してください / 例：Fate, FGO" %>
+      <%= f.text_field :tag_list, value: @game.tag_list.join(','), class: "form-control mb-2", placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate, FGO" %>
 
       <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
         <%= icon('fas', 'plus') %> 登録する
