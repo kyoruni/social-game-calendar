@@ -10,8 +10,25 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require bootstrap
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/lang/ja
+//= require_tree .
+
+$(function() {
+  $(document).on("turbolinks:load", function() {
+    $("#calendar").fullCalendar({
+      lang: "ja",
+      header: {
+        left: "month,agendaWeek,agendaDay",
+        center: "title",
+        right: "prev,next today"
+      }
+    });
+  });
+});
