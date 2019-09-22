@@ -1,0 +1,11 @@
+<div class="card mt-2">
+  <div class="card-body">
+    <%= form_with model: @game, class: "form-group" do |f| %>
+      <%= f.label      :タイトル, class: "text-muted mb-1" %>
+      <%= f.text_field :name,   class: "form-control mb-2", placeholder: "正式名称で入力してください 例：Fate/Grand Order" %>
+      <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
+        <%= icon('fas', 'plus') %> 登録する
+      <% end %>
+    <% end %>
+  </div>
+</div>
