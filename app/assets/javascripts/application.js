@@ -17,10 +17,18 @@
 //= require bootstrap
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/lang/ja
 //= require_tree .
 
 $(function() {
   $(document).on("turbolinks:load", function() {
-    $("#calendar").fullCalendar({});
+    $("#calendar").fullCalendar({
+      lang: "ja",
+      header: {
+        left: "month,agendaWeek,agendaDay",
+        center: "title",
+        right: "prev,next today"
+      }
+    });
   });
 });
