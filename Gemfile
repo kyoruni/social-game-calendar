@@ -75,3 +75,6 @@ gem 'font-awesome-sass', '~> 5.9.0'
 # カレンダー
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+# タグ機能
+gem 'acts-as-taggable-on' 
