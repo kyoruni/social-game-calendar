@@ -71,3 +71,7 @@ gem 'jquery-rails'
 
 # font-awesome
 gem 'font-awesome-sass', '~> 5.9.0'
+
+# カレンダー
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
