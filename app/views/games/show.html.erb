@@ -2,6 +2,9 @@
   <h3 class="game-title">
     <%= @game.name %>
   </h3>
+  <%= link_to edit_game_path(@game) do %>
+    <%= icon('fas', 'wrench', class: "pt-2 pl-2") %>
+  <% end %>
 </div>
 
 <div class="row mb-3">
