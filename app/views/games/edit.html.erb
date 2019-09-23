@@ -1,0 +1,16 @@
+<div class="card mt-2">
+  <div class="card-body">
+    <%= form_with model: @game, class: "form-group" do |f| %>
+      <%= f.label      :name, 'タイトル', class: "text-muted mb-1" %>
+      <%= f.text_field :name,            class: "form-control mb-2", placeholder: "正式名称で入力してください / 例：Fate/Grand Order" %>
+
+      <%= f.label :tag_list, '検索用ワード', class: "text-muted mb-1" %>
+      <%= f.text_field :tag_list, value: @game.tag_list.join(' '),
+        class: "form-control mb-2", placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate FGO" %>
+
+      <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
+        <%= icon('fas', 'plus') %> 登録する
+      <% end %>
+    <% end %>
+  </div>
+</div>
