@@ -1,0 +1,15 @@
+<div class="row">
+  <h3 class="game-title">
+    <%= @game.name %>
+  </h3>
+</div>
+
+<div class="row mb-3">
+  <ul class="list-inline">
+    <% @game.tag_list.each do |tag| %>
+      <li class="list-inline-item badge badge-color"><%= tag %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="calendar"></div>
