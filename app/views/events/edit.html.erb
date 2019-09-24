@@ -1,4 +1,30 @@
 <div class="row">
+  <h3 class="game-title">
+    <%= @game.name %>
+  </h3>
+  <%= link_to game_path(@game) do %>
+    <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
+  <% end %>
+  <%= link_to game_events_path(@game) do %>
+    <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
+  <% end %>
+  <%= link_to new_game_event_path(@game) do %>
+    <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
+  <% end %>
+  <%= link_to edit_game_path(@game) do %>
+    <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
+  <% end %>
+</div>
+
+<div class="row mb-3">
+  <ul class="list-inline">
+    <% @game.tag_list.each do |tag| %>
+      <li class="list-inline-item badge badge-color"><%= tag %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="row">
   <div class="card mt-2 w-100">
     <div class="card-body">
 
@@ -20,7 +46,7 @@
         </div>
 
         <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
-          <%= fa_icon "plus" %> 登録する
+          <%= icon 'fas', 'plus' %> 登録する
         <% end %>
       <% end %>
     </div>

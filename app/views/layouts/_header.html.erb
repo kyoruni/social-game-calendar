@@ -8,36 +8,36 @@
     <ul class="navbar-nav">
       <li class="nav-item active">
         <%= link_to root_path, class: "nav-link" do %>
-          <%= fa_icon "home" %> ホーム
+          <%= icon 'fas', 'home' %> ホーム
           <span class="sr-only"></span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <%= fa_icon "heart" %> お気に入り
+          <%= icon 'fas', 'heart' %> お気に入り
         </a>
       </li>
       <li class="nav-item">
         <%= link_to search_games_path, class: "nav-link" do %>
-          <%= fa_icon "search-plus" %> さがす
+          <%= icon 'fas', 'search-plus' %> さがす
         <% end %>
       </li>
 
 
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <%= fa_icon "cog" %> アカウント設定
+          <%= icon 'fas', 'cog' %> アカウント設定
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <%= fa_icon "question" %> ヘルプ
+          <%= icon 'fas', 'question' %> ヘルプ
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <%= fa_icon "sign-out" %> ログアウト
+          <%= icon 'fas', 'sign-out-alt' %> ログアウト
         </a>
       </li>
     </ul>

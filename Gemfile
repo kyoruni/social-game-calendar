@@ -70,8 +70,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # font-awesome
-gem "font-awesome-rails" # カレンダーで使う
-gem 'font-awesome-sass', '~> 5.9.0' # 種類が多いので基本的にはこっちを使う
+gem 'font-awesome-sass', '~> 5.9.0'
 
 # カレンダー
 gem 'fullcalendar-rails'
