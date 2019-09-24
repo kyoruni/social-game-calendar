@@ -18,4 +18,5 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .
