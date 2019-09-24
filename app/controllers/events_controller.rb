@@ -25,6 +25,12 @@ class EventsController < ApplicationController
     redirect_to game_events_path(id: game_params[:game_id])
   end
 
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+    redirect_to game_events_path(id: game_params[:game_id])
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :start, :end).merge(game_id: params[:game_id])
