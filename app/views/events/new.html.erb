@@ -6,13 +6,18 @@
         <%= f.label      :title, 'タイトル', class: "text-muted mb-1" %>
         <%= f.text_field :title, class: "form-control mb-2", placeholder: "イベント・キャンペーン名を入力してください" %>
 
-        <%= f.label      :start, '開始日時', class: "text-muted mb-1" %>
-        <%= f.text_field :start, class: "form-control datetimepicker-input mb-2", placeholder: "クリックでカレンダー入力ができます",
-          id: "start", data: {toggle: "datetimepicker", target: "#start"} %>
+        <div class="d-flex mb-2">
+          <div class="form-item mr-4">
+            <%= f.label      :start, '開始日時', class: "text-muted mb-1" %><br />
+            <%= f.datetime_select :start, {use_two_digit_numbers: true,
+              datetime_separator: '　'}, class: 'form-control bootstrap-date' %>
+          </div>
 
-        <%= f.label      :end,   '終了日時', class: "text-muted mb-1" %>
-        <%= f.text_field :end, class: "form-control datetimepicker-input mb-2", placeholder: "クリックでカレンダー入力ができます",
-          id: "end", data: {toggle: "datetimepicker", target: "#end"} %>
+          <div class="form-item">
+            <%= f.label      :end,   '終了日時', class: "text-muted mb-1" %><br />
+            <%= f.datetime_select :end, {use_two_digit_numbers: true}, class: 'form-control bootstrap-date' %>
+          </div>
+        </div>
 
         <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
           <%= fa_icon "plus" %> 登録する
