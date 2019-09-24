@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="card mt-2 w-100">
+    <div class="card-body">
+
+      <%= form_with model: [ @game, @event ], class: "form-group" do |f| %>
+        <%= f.label      :title, 'タイトル', class: "text-muted mb-1" %>
+        <%= f.text_field :title, class: "form-control mb-2", placeholder: "イベント・キャンペーン名を入力してください" %>
+
+        <%= f.label      :start, '開始日時', class: "text-muted mb-1" %>
+        <%= f.text_field :start, class: "form-control datetimepicker-input mb-2", placeholder: "クリックでカレンダー入力ができます",
+          id: "start", data: {toggle: "datetimepicker", target: "#start"} %>
+
+        <%= f.label      :end,   '終了日時', class: "text-muted mb-1" %>
+        <%= f.text_field :end, class: "form-control datetimepicker-input mb-2", placeholder: "クリックでカレンダー入力ができます",
+          id: "end", data: {toggle: "datetimepicker", target: "#end"} %>
+
+        <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
+          <%= fa_icon "plus" %> 登録する
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
