@@ -34,6 +34,7 @@ class GamesController < ApplicationController
   end
 
   def search
+    @games = Game.all
   end
 
   private
