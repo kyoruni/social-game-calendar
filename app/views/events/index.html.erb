@@ -1,0 +1,49 @@
+<div class="row">
+  <h3 class="game-title">
+    <%= @game.name %>
+  </h3>
+  <%= link_to game_events_path(@game) do %>
+    <%= fa_icon "calendar", class: "pt-2 pl-2" %>
+  <% end %>
+  <%= link_to new_game_event_path(@game) do %>
+    <%= fa_icon "plus", class: "pt-2 pl-2" %>
+  <% end %>
+  <%= link_to edit_game_path(@game) do %>
+    <%= fa_icon "wrench", class: "pt-2 pl-2" %>
+  <% end %>
+</div>
+
+<div class="row mb-3">
+  <ul class="list-inline">
+    <% @game.tag_list.each do |tag| %>
+      <li class="list-inline-item badge badge-color"><%= tag %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="row">
+  <table class="table table-hover table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>タイトル</th>
+        <th scope="col">開始</th>
+        <th scope="col">終了</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <th scope="row">
+            <%= event.title %>
+          </th>
+          <td>
+            <%= event.start.strftime("%Y-%m-%d　%H:%M") %>
+          </td>
+          <td>
+            <%= event.end.strftime("%Y-%m-%d　%H:%M") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
