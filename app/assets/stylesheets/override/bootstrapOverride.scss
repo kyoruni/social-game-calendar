@@ -1,3 +1,16 @@
 .container-fluid {
   margin: 0;
 }
+
+// テーブルの見出しを、中央寄せにする
+// テーブル内の時刻セルを、中央寄せにする
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+// テーブル内のボタンを中央寄せにする
+.table > tbody > tr > th {
+  vertical-align: middle;
+}
