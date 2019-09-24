@@ -3,16 +3,17 @@
     <%= @game.name %>
   </h3>
   <%= link_to edit_game_path(@game) do %>
-    <%= icon('fas', 'wrench', class: "pt-2 pl-2") %>
+    <%= fa_icon "wrench", class: "pt-2 pl-2" %>
+  <% end %>
+  <%= link_to new_game_event_path(@game) do %>
+    <%= fa_icon "plus", class: "pt-2 pl-2" %>
   <% end %>
 </div>
 
 <div class="row mb-3">
   <ul class="list-inline">
     <% @game.tag_list.each do |tag| %>
-      <li class="list-inline-item badge badge-color">
-        <%= tag %>
-      </li>
+      <li class="list-inline-item badge badge-color"><%= tag %></li>
     <% end %>
   </ul>
 </div>
