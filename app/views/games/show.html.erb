@@ -2,14 +2,17 @@
   <h3 class="game-title">
     <%= @game.name %>
   </h3>
+  <%= link_to game_path(@game) do %>
+    <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
+  <% end %>
   <%= link_to game_events_path(@game) do %>
-    <%= fa_icon "calendar", class: "pt-2 pl-2" %>
+    <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
   <% end %>
   <%= link_to new_game_event_path(@game) do %>
-    <%= fa_icon "plus", class: "pt-2 pl-2" %>
+    <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
   <% end %>
   <%= link_to edit_game_path(@game) do %>
-    <%= fa_icon "wrench", class: "pt-2 pl-2" %>
+    <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
   <% end %>
 </div>
 
