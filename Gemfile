@@ -70,11 +70,15 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # font-awesome
-gem 'font-awesome-sass', '~> 5.9.0'
+gem "font-awesome-rails" # カレンダーで使う
+gem 'font-awesome-sass', '~> 5.9.0' # 種類が多いので基本的にはこっちを使う
 
 # カレンダー
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 # タグ機能
-gem 'acts-as-taggable-on' 
+gem 'acts-as-taggable-on'
+
+# 日付時刻入力用
+gem "bootstrap4-datetime-picker-rails"

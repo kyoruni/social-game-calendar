@@ -25,7 +25,12 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game   = Game.find(params[:id])
+    @events = @game.events
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def search
@@ -33,6 +38,6 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:name, :tag_list)
+    params.require(:game).permit(:name, :color, :textColor, :tag_list)
   end
 end

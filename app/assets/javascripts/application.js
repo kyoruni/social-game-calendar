@@ -18,17 +18,5 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .
-
-$(function() {
-  $(document).on("turbolinks:load", function() {
-    $("#calendar").fullCalendar({
-      lang: "ja",
-      header: {
-        left: "month,agendaWeek,agendaDay",
-        center: "title",
-        right: "prev,next today"
-      }
-    });
-  });
-});

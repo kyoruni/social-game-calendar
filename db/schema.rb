@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_071762) do
+ActiveRecord::Schema.define(version: 2019_09_24_025628) do
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "game_id"
+    t.string "title", null: false
+    t.datetime "start", null: false
+    t.datetime "end", null: false
+    t.boolean "allDay"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_events_on_game_id"
+  end
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color", null: false
+    t.string "textColor", null: false
     t.index ["name"], name: "index_games_on_name", unique: true
   end
 
@@ -44,4 +57,5 @@ ActiveRecord::Schema.define(version: 2019_09_22_071762) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "events", "games"
 end
