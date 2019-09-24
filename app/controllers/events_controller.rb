@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+  def index
+    @game   = Game.find(params[:game_id])
+    @events = @game.events.order("start DESC") # 最新のイベントから
+  end
+
   def new
     @game = Game.find(params[:game_id])
     @event = Event.new
