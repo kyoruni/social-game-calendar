@@ -25,7 +25,12 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game   = Game.find(params[:id])
+    @events = @game.events
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def search
