@@ -38,6 +38,6 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:name, :tag_list)
+    params.require(:game).permit(:name, :color, :textColor, :tag_list)
   end
 end

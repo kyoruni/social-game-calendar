@@ -3,6 +3,6 @@ json.array! @events do |event|
   json.start     event.start
   json.end       event.end
   json.allDay    event.allDay
-  json.color     "#ff99cc"
-  json.textColor "#ffffff"
+  json.color     @game.color
+  json.textColor @game.textColor
 end
