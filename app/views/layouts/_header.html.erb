@@ -41,17 +41,24 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out" do %>
             <%= icon 'fas', 'sign-out-alt' %> ログアウト
           <% end %>
-        <% else %>
+      <% else %>
+        <li class="nav-item">
           <%= link_to new_user_registration_path, class: "nav-link" do %>
             <%= icon 'fas', 'user-plus' %> 新規登録
           <% end %>
-        <% end %>
-      </li>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+            <%= icon 'fas', 'sign-in-alt' %> ログイン
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
