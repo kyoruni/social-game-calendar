@@ -42,24 +42,22 @@ $(function() {
         dataType: "json"
       })
         .done(function(event) {
-          if (event.length !== 0) {
-            $("#calendar").fullCalendar({
-              lang: "ja",
-              timeFormat: "HH:mm", // 24時間表記にする
-              header: {
-                left: "month,agendaWeek,agendaDay",
-                center: "title",
-                right: "prev,next today"
-              },
-              displayEventEnd: {
-                // 終了時間を表示
-                month: true,
-                basicWeek: false,
-                default: true
-              },
-              events: event // 受け取ったjsonの中身全部表示
-            });
-          }
+          $("#calendar").fullCalendar({
+            lang: "ja",
+            timeFormat: "HH:mm", // 24時間表記にする
+            header: {
+              left: "month,agendaWeek,agendaDay",
+              center: "title",
+              right: "prev,next today"
+            },
+            displayEventEnd: {
+              // 終了時間を表示
+              month: true,
+              basicWeek: false,
+              default: true
+            },
+            events: event // 受け取ったjsonの中身全部表示
+          });
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
           alert("ng!!");
