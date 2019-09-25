@@ -78,3 +78,6 @@ gem 'momentjs-rails'
 
 # タグ機能
 gem 'acts-as-taggable-on'
+
+# テストデータ作成用
+gem 'seed-fu'
