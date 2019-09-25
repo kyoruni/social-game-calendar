@@ -1,28 +1,5 @@
-<div class="row">
-  <h3 class="game-title">
-    <%= @game.name %>
-  </h3>
-  <%= link_to game_path(@game) do %>
-    <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
-  <% end %>
-  <%= link_to game_events_path(@game) do %>
-    <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
-  <% end %>
-  <%= link_to new_game_event_path(@game) do %>
-    <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
-  <% end %>
-  <%= link_to edit_game_path(@game) do %>
-    <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
-  <% end %>
-</div>
-
-<div class="row mb-3">
-  <ul class="list-inline">
-    <% @game.tag_list.each do |tag| %>
-      <li class="list-inline-item badge badge-color"><%= tag %></li>
-    <% end %>
-  </ul>
-</div>
+<%= render partial: "./layouts/game_menu", locals: { game: @game, game_id: params[:game_id] } %>
+<%= render partial: "./layouts/game_tags", locals: { game: @game } %>
 
 <div class="row">
   <table class="table table-hover table-bordered">
@@ -31,7 +8,9 @@
         <th>タイトル</th>
         <th scope="col">開始</th>
         <th scope="col">終了</th>
-        <th></th>
+        <% if user_signed_in? %>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -46,16 +25,18 @@
           <td>
             <%= event.end.strftime("%Y-%m-%d　%H:%M") %>
           </td>
-          <td>
-            <div class="text-center">
-              <%= link_to edit_game_event_path(id: event.id, game_id: @game.id) do %>
-                <button type="button" class="btn btn-edit btn-sm">編集</button>
-              <% end %>
-              <%= link_to game_event_path( @game,  event), method: :delete do %>
-                <button type="button" class="btn btn-delete btn-sm">削除</button>
-              <% end %>
-            </div>
-          </td>
+          <% if user_signed_in? %>
+            <td>
+              <div class="text-center">
+                <%= link_to edit_game_event_path(id: event.id, game_id: @game.id) do %>
+                  <button type="button" class="btn btn-edit btn-sm">編集</button>
+                <% end %>
+                <%= link_to game_event_path( @game,  event), method: :delete do %>
+                  <button type="button" class="btn btn-delete btn-sm">削除</button>
+                <% end %>
+              </div>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
