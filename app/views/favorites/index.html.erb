@@ -1,0 +1,25 @@
+<h5 class="font-weight-bold mb-2">お気に入りゲーム一覧</h2>
+<div class="row">
+  <table class="table table-hover table-bordered col-9">
+    <thead class="thead-light">
+      <tr>
+        <th style="width:70%;">タイトル</th>
+        <th scope="col">最終更新日</th>
+      </tr>
+    </thead>
+    <tbody id="game-search-result">
+      <% @favorites.each do |favorite| %>
+        <tr>
+          <th scope="row">
+            <%= link_to game_path(favorite.id) do %>
+              <%= favorite.name %>
+            <% end %>
+          </th>
+          <td>
+            <%= favorite.updated_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

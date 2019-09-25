@@ -4,15 +4,33 @@
   </h3>
   <%= link_to game_path(@game) do %>
     <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
+    <span class="small">スケジュール</span>
   <% end %>
   <%= link_to game_events_path(@game) do %>
     <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
+    <span class="small">イベント一覧</span>
   <% end %>
   <%= link_to new_game_event_path(@game) do %>
     <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
+    <span class="small">イベント登録</span>
   <% end %>
   <%= link_to edit_game_path(@game) do %>
     <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
+    <span class="small">情報編集</span>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <% if current_user.liked?(@game) %>
+      <%= link_to game_liked_path(params[:id]), method: :delete do %>
+        <%= icon 'far', 'heart', class:"pt-2 pl-2" %>
+        <span class="small">お気に入り解除</span>
+      <% end %>
+    <% else %>
+      <%= link_to game_liked_path(params[:id]), method: :post do %>
+        <%= icon 'fas', 'heart', class:"pt-2 pl-2" %>
+        <span class="small">お気に入り登録</span>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
