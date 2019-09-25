@@ -13,32 +13,44 @@
         <% end %>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <%= icon 'fas', 'heart' %> お気に入り
-        </a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <%= icon 'fas', 'heart' %> お気に入り
+          </a>
+        </li>
+      <% end %>
+
       <li class="nav-item">
         <%= link_to search_games_path, class: "nav-link" do %>
           <%= icon 'fas', 'search-plus' %> さがす
         <% end %>
       </li>
 
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <%= icon 'fas', 'cog' %> アカウント設定
+          </a>
+        </li>
+      <% end %>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <%= icon 'fas', 'cog' %> アカウント設定
-        </a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <%= icon 'fas', 'question' %> ヘルプ
         </a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <%= icon 'fas', 'sign-out-alt' %> ログアウト
-        </a>
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <%= icon 'fas', 'sign-out-alt' %> ログアウト
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+            <%= icon 'fas', 'user-plus' %> 新規登録
+          <% end %>
+        <% end %>
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->
