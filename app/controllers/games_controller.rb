@@ -34,7 +34,13 @@ class GamesController < ApplicationController
   end
 
   def search
-    @games = Game.all
+    # 入力された検索ワードをタグに持つゲームを検索
+    @games = Game.tagged_with(params[:keyword], wild: true, any: true) | Game.where('name LIKE(?)', "%#{params[:keyword]}%")
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
