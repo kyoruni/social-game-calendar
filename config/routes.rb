@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :favorites, only: [:index]
+  end
 
   # ルートの設定
   #  ログインしていたら、users#show
