@@ -18,17 +18,19 @@
     <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
     <span class="small">情報編集</span>
   <% end %>
+
   <% if current_user.liked?(@game) %>
-    <%= link_to edit_game_path(@game) do %>
-      <%= icon 'fas', 'heart', class:"pt-2 pl-2" %>
+    <%= link_to game_liked_path(game_id: params[:id]), method: :delete do %>
+      <%= icon 'far', 'heart', class:"pt-2 pl-2" %>
       <span class="small">お気に入り解除</span>
     <% end %>
   <% else %>
-    <%= link_to edit_game_path(@game) do %>
-      <%= icon 'far', 'heart', class:"pt-2 pl-2" %>
+    <%= link_to game_liked_path(game_id: params[:id]), method: :post do %>
+      <%= icon 'fas', 'heart', class:"pt-2 pl-2" %>
       <span class="small">お気に入り登録</span>
     <% end %>
   <% end %>
+
 </div>
 
 <div class="row mb-3">
