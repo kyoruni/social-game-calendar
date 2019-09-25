@@ -20,12 +20,12 @@
   <% end %>
 
   <% if current_user.liked?(@game) %>
-    <%= link_to game_liked_path(game_id: params[:id]), method: :delete do %>
+    <%= link_to game_liked_path(params[:id]), method: :delete do %>
       <%= icon 'far', 'heart', class:"pt-2 pl-2" %>
       <span class="small">お気に入り解除</span>
     <% end %>
   <% else %>
-    <%= link_to game_liked_path(game_id: params[:id]), method: :post do %>
+    <%= link_to game_liked_path(params[:id]), method: :post do %>
       <%= icon 'fas', 'heart', class:"pt-2 pl-2" %>
       <span class="small">お気に入り登録</span>
     <% end %>
