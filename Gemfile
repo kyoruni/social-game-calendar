@@ -81,3 +81,6 @@ gem 'acts-as-taggable-on'
 
 # テストデータ作成用
 gem 'seed-fu'
+
+# ユーザー機能
+gem 'devise'
