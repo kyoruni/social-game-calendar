@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  # index以外、非ログイン時はgameのindexに飛ばす
+  before_action :move_to_game_index, except: [:index]
+
   def index
     @game   = Game.find(params[:game_id])
     @events = @game.events.order("start DESC") # 最新のイベントから
@@ -38,5 +41,9 @@ class EventsController < ApplicationController
 
   def game_params
     params.permit(:game_id)
+  end
+
+  def move_to_game_index
+    redirect_to controller: 'games', action: :show, id: params[:game_id] unless user_signed_in?
   end
 end
