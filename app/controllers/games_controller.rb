@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  # index show search以外、非ログイン時はindexに飛ばす
+  before_action :move_to_index, except: [:index, :show, :search]
+
   def index
     @games = Game.all
   end
@@ -46,5 +49,15 @@ class GamesController < ApplicationController
   private
   def game_params
     params.require(:game).permit(:name, :color, :textColor, :tag_list)
+  end
+
+  def move_to_index
+    # idがあればゲームの個別ページへ
+    # idがなければ(new)ルートパスへ
+    if params[:id]
+      redirect_to action: :show, id: params[:id] unless user_signed_in?
+    else
+      redirect_to root_path
+    end
   end
 end
