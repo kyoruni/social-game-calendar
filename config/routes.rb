@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'games#index'
-
   resources  :games,  except: [:destroy] do
     resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
     collection do
       get 'search'
     end
   end
+  resources :users, only: [:index, :show]
+
+  # ルートの設定
+  #  ログインしていたら、users#show
+  #  ログインしていなかったら、games#index
+  authenticated :user do
+    root "users#show"
+  end
+  root 'games#index'
 end
