@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 2019_09_25_042636) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "color", null: false
-    t.string "textColor", null: false
     t.index ["name"], name: "index_games_on_name", unique: true
   end
 
