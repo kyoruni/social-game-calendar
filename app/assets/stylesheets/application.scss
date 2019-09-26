@@ -3,7 +3,6 @@
  *= require fullcalendar
  *= require_tree .
  */
-
 @import "reset";
 @import "bootstrap";
 @import "font-awesome-sprockets";
@@ -11,3 +10,42 @@
 @import "config/*";
 @import "modules/*";
 @import "override/*";
+
+// html,
+// body,
+// .container-fluid,
+// .row,
+// .column {
+//   height: 100vh;
+// }
+
+html,
+body {
+  height: 100vh;
+}
+
+.container-fluid {
+  height: calc(100vh - 56px);
+}
+
+body {
+  background: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+  overflow: scroll;
+  -ms-overflow-style: none; // IEでスクロールバーを非表示にする
+  overflow: -moz-scrollbars-none; // Firefoxでスクロールバーを非表示にする
+}
+
+// Chromeでスクロールバーを非表示にする
+*::-webkit-scrollbar {
+  display: none;
+}
+
+// フォーム入力時の枠線を強制的に消す
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

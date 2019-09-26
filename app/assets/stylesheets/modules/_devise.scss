@@ -1,0 +1,19 @@
+.sign-in-form {
+  background: #ffffff;
+  text-align: center;
+}
+
+// デフォルトのチェックボックスだとpaddingが入っているので、位置ずれを修正するためにリセット
+.checkbox {
+  padding: 0;
+}
+
+.login-form,
+.login-form:focus {
+  background: #f5f5f5;
+}
+
+.login-title {
+  display: inline-block;
+  border-bottom: solid 1px #cccccc;
+}
