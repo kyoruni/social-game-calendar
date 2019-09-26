@@ -1,5 +1,5 @@
 .sign-in-form {
-  background: #ffffff;
+  background: $color-white;
   text-align: center;
 }
 
@@ -10,13 +10,13 @@
 
 .login-form,
 .login-form:focus {
-  background: #f5f5f5;
+  background: $color-background;
 }
 
 // 見出しに下線を引く
 .login-title {
   display: inline-block;
-  border-bottom: solid 1px #cccccc;
+  border-bottom: solid 1px $color-gray;
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -24,19 +24,19 @@
 // devise 部分テンプレートのリンクの色
 .link-text {
   font-size: 1rem;
-  color: #84b693;
+  color: $color-main;
   &:hover {
-    color: #4a6653;
+    color: $color-main-dark;
   }
 }
 
 // ログインボタン
 .btn-login {
-  background: #84b693;
-  color: #ffffff;
+  background: $color-main;
+  color: $color-white;
   transition-duration: 0.3s;
   &:hover {
-    color: #fff;
+    color: $color-white;
     opacity: 0.6;
     transition-duration: 0.3s;
   }
