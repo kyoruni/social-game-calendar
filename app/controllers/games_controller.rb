@@ -7,18 +7,19 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
+    @colors = Color.order("id ASC")
+    @game   = Game.new
   end
 
   def create
     @game = Game.new(game_params)
-    @game.tag_list.add(@game.name) # タグリストに、名前を追加する
     @game.save
     redirect_to :root
   end
 
   def edit
-    @game = Game.find(params[:id])
+    @colors = Color.order("id ASC")
+    @game   = Game.find(params[:id])
   end
 
   def update
@@ -48,16 +49,18 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:name, :color, :textColor, :tag_list)
+    params.require(:game).permit(:name, :color_id, :textColor, :tag_list)
   end
 
   def move_to_index
     # idがあればゲームの個別ページへ
     # idがなければ(new)ルートパスへ
-    if params[:id]
-      redirect_to action: :show, id: params[:id] unless user_signed_in?
-    else
-      redirect_to root_path
+    unless user_signed_in?
+      if params[:id]
+        redirect_to action: :show, id: params[:id]
+      else
+        redirect_to root_path
+      end
     end
   end
 end
