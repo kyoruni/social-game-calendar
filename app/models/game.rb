@@ -9,4 +9,6 @@ class Game < ApplicationRecord
 
   # GameモデルはFavoriteを通して、複数のUserモデルとつながる
   has_many :users, through: :favorites
+
+  belongs_to :color
 end
