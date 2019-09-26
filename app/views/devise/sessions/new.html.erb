@@ -1,6 +1,6 @@
 <div class="sign-in-form rounded">
   <h2 class="login-title mt-3">ログイン</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="col-md-4 mx-auto mt-3 mb-3">
       <div class="form-group">
@@ -12,11 +12,6 @@
         <%= f.label          :password, class: "text-muted" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control login-form rounded-pill" %>
       </div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="form-group">
@@ -28,29 +23,13 @@
           </div>
         </div>
       <% end %>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-login btn-block rounded-pill" %>
+        <%= f.submit "ログイン", class: "btn btn-login btn-block rounded-pill" %>
       </div>
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
     </div>
-
+    <div class="mb-3">
+      <%= render "devise/shared/links" %>
+    </div>
   <% end %>
-  <div class="mb-3">
-    <%= render "devise/shared/links" %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-</div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 </div>
