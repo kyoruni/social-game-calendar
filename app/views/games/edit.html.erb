@@ -1,26 +1,33 @@
 <div class="card mt-2">
   <div class="card-body">
-    <%= form_with model: @game, class: "form-group" do |f| %>
-    <%= f.label      :name, 'タイトル', class: "text-muted mb-1" %>
-    <%= f.text_field :name, class: "form-control mb-2", placeholder: "正式名称で入力してください / 例：Fate/Grand Order" %>
+    <%= form_with model: @game do |f| %>
 
-    <%= f.label :tag_list, '検索用ワード', class: "text-muted mb-1" %>
-    <%= f.text_field :tag_list, value: @game.tag_list.join(' '), class: "form-control mb-2", placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate FGO" %>
-
-    <div class="form-row mb-2">
-      <div class="col">
-        <%= f.label      :color, 'イメージカラー', class: "text-muted mb-1" %>
-        <%= f.text_field :color, class: "form-control mb-2",placeholder: "カレンダー表示時の背景色になります。/ 例： #cccccc" %>
+      <div class="form-group">
+        <%= f.label      :name, 'タイトル', class: "text-muted mb-1" %>
+        <%= f.text_field :name, class: "form-control mb-2", placeholder: "正式名称で入力してください / 例：Fate/Grand Order" %>
       </div>
-      <div class="col">
-        <%= f.label      :textColor, 'テキストカラー', class: "text-muted mb-1" %>
-        <%= f.text_field :textColor, class: "form-control mb-2", placeholder: "カレンダー表示時の文字色になります。/ 例： #ffffff" %>
-      </div>
-    </div>
 
-    <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
-      <%= icon 'fas', 'plus' %> 登録する
+      <div class="form-group">
+        <%= f.label :tag_list, '検索用ワード', class: "text-muted mb-1" %>
+        <%= f.text_field :tag_list, value: @game.tag_list.join(' '), class: "form-control mb-2", placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate FGO" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :color_id, 'イメージカラー', class: "text-muted" %>
+        <div class="form-check form-check-inline">
+          <% @colors.each do |color| %>
+              <%=f.radio_button :color_id, color.id, class: "form-check-input" %>
+              <span class="mr-2">
+                <font color="<%= color.code %>" class="form-check-label mr-1">■</font>
+              </span>
+          <% end %>
+          <%= f.hidden_field :textColor, value: "#ffffff" %>
+        </div>
+      </div>
+
+      <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
+        <%= icon 'fas', 'plus' %> 登録する
+        <% end %>
       <% end %>
-    <% end %>
   </div>
 </div>
