@@ -1,9 +1,9 @@
-<div class="sign-in-form rounded">
+<div class="sign-in-form w-50 rounded mx-auto">
   <h2 class="login-title mt-3">ログインできない場合</h2>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="col-md-4 mx-auto mt-3 mb-3">
+    <div class="col-md-9 mx-auto mt-3 mb-3">
       <div class="form-group">
         <%= f.label       :email, class: "text-muted" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
