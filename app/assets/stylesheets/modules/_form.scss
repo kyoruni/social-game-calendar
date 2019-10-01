@@ -10,4 +10,15 @@
   display: inline-block;
   position: absolute;
   top: 0;
+  &__text {
+    color: $color-red;
+    position: absolute;
+    top: 0;
+    &__name {
+      left: 110px;
+    }
+    &__color {
+      left: 160px;
+    }
+  }
 }
