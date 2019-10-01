@@ -1,5 +1,41 @@
-a:hover {
-  text-decoration: none;
+// ページ名 ※「お気に入りゲーム一覧」等
+.page-title {
+  color: $color-gray-dark-deep;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+// ゲーム一覧
+.game {
+  background: $color-white;
+  text-align: left;
+  padding: 1rem;
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    // リンクの文字色
+    a {
+      color: $color-gray-dark;
+      &:hover {
+        color: $color-main-dark;
+        opacity: 0.6;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+}
+
+// ゲーム一覧の中身
+.game__caption {
+  font-size: 0.8rem;
+  &__event {
+    &__head {
+      width: 20%;
+      &__icon {
+        font-size: 0.7rem;
+      }
+    }
+  }
 }
 
 .badge-color {

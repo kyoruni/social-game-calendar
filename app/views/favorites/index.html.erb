@@ -4,30 +4,30 @@
   </h2>
   <!-- 一覧ここから -->
   <% @favorites.each do |game| %>
-    <div class="favorite-list mb-3">
+    <div class="game mb-3">
       <!-- タイトル -->
-      <h5 class="game-title mt-2">
+      <h5 class="game__title mt-2">
         <font color="<%= game.color.code %>"><%= icon 'fas', 'gamepad' %></font> 
         <%= link_to game_path(game.id) do %>
           <%= game.name %>
         <% end %>
       </h2>
-      <div class="game-caption text-muted">
+      <div class="game__caption text-muted">
         <!-- 最新イベント -->
-        <div class="game-caption__event d-flex">
-          <p class="game-caption__event__head mb-0">
-            <%= icon 'far', 'clock', class: "game-caption__event__head__icon" %> 最新イベント
+        <div class="game__caption__event d-flex">
+          <p class="game__caption__event__head mb-0">
+            <%= icon 'far', 'clock', class: "game__caption__event__head__icon" %> 最新イベント
           </p>
-          <p class="game-caption__event__body mb-0">
+          <p class="game__caption__event__body mb-0">
             <%= game.last_event.title %>
           </p>
         </div>
         <!-- 更新日 -->
-        <div class="game-caption__event d-flex">
-          <p class="game-caption__event__head mb-0">
-            <%= icon 'far', 'edit', class: "game-caption__event__head__icon" %> 最終更新
+        <div class="game__caption__event d-flex">
+          <p class="game__caption__event__head mb-0">
+            <%= icon 'far', 'edit', class: "game__caption__event__head__icon" %> 最終更新
           </p>
-          <p class="game-caption__event__body mb-0">
+          <p class="game__caption__event__body mb-0">
             <%= game.updated_at %>
           </p>
         </div>
