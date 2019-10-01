@@ -8,19 +8,25 @@
       <%= form_with model: @game, class: "form-group search-form" do |f| %>
         <!-- タイトル-->
         <div class="form-group">
-          <%= f.label      :name, 'タイトル', class: "text-muted mb-0" %>
+          <div class="form-group__label">
+            <%= f.label      :name, 'タイトル', class: "text-muted mb-0" %>
+            <span class="required rounded small mb-0 ml-1 mt-1 pr-1 pl-1">必須</span>
+          </div>
           <%= f.text_field :name, class: "form-control rounded-pill mb-2",
-                                  placeholder: "正式名称で入力してください / 例：Fate/Grand Order" %>
+                                  placeholder: "正式名称で入力してください / 例：Fate/Grand Order", autocomplete: "off" %>
         </div>
         <!-- 検索用ワード -->
         <div class="form-group">
           <%= f.label :tag_list, '検索用ワード', class: "text-muted mb-0" %>
           <%= f.text_field :tag_list, value: @game.tag_list.join(' '), class: "form-control mb-2 rounded-pill",
-                                  placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate FGO" %>
+                                  placeholder: "半角スペース区切りで略称等を入力してください / 例：Fate FGO", autocomplete: "off" %>
         </div>
         <!-- イメージカラー -->
         <div class="form-group">
-          <%= f.label :color_id, 'イメージカラー', class: "text-muted mb-0" %>
+          <div class="form-group__label">
+            <%= f.label :color_id, 'イメージカラー', class: "text-muted mb-0" %>
+            <span class="required rounded small mb-0 ml-1 mt-1 pr-1 pl-1">必須</span>
+          </div>
           <div class="form-check form-check-inline mt-0 pr-1 pl-1">
             <% @colors.each do |color| %>
                 <%=f.radio_button :color_id, color.id, class: "form-check-input" %>
@@ -32,7 +38,7 @@
           </div>
         </div>
         <!-- ボタン -->
-        <%= button_tag type: 'submit', class: "btn btn-okColor w-100" do %>
+        <%= button_tag type: 'submit', class: "btn btn-okColor rounded-pill w-100" do %>
           <%= icon 'fas', 'plus' %> 登録する
         <% end %>
       <% end %>
