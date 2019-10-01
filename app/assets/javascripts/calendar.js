@@ -14,9 +14,9 @@ $(function() {
             lang: "ja",
             timeFormat: "HH:mm", // 24時間表記にする
             header: {
-              left: "month,agendaWeek,agendaDay",
+              left: "prev,next",
               center: "title",
-              right: "prev,next today"
+              right: "today"
             },
             displayEventEnd: {
               // 終了時間を表示
@@ -46,9 +46,9 @@ $(function() {
             lang: "ja",
             timeFormat: "HH:mm", // 24時間表記にする
             header: {
-              left: "month,agendaWeek,agendaDay",
+              left: "prev,next",
               center: "title",
-              right: "prev,next today"
+              right: "today"
             },
             displayEventEnd: {
               // 終了時間を表示
