@@ -1,31 +1,33 @@
-<div class="row mb-2">
-  <div class="card mt-2 w-100">
-    <div class="card-body p-20">
-      <h5 class="card-title font-weight-bold">検索</h2>
+<div class="col-md-7 rounded mx-auto">
+  <h2 class="page-title mt-1">
+    <%= icon 'fas', 'search-plus' %> ゲームをさがす
+  </h2>
 
-      <%= form_with class: "form-group", method: :get do |f| %>
-        <div class="form-row">
-          <div class="col-6">
-            <%= f.text_field :name, class: "form-control", id: "gameSearch-input" %>
-          </div>
-          <div class="col-1">
-            <%= button_tag type: 'submit', class: "btn btn-okColor w-100", id: "btn-search" do %>
-              <%= icon 'fas', 'search' %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-      <p class="card-text mb-3 text-muted">
-        略称(キーワード)検索がご利用いただけます。</br>
-        例：Fate/Grand Order は、「FGO」「フェイト」等でもヒットします。
-      </p>
-      <h5 class="card-title font-weight-bold">それでも見つからない場合…</h2>
-      <p class="card-text mb-2 text-muted">
-        下記「登録する」ボタンより、新規ゲームを登録することができます。
-      </p>
+  <div class="game mb-3">
+    <!-- 検索フォーム -->
+    <%= form_with class: "form-group search-form", method: :get do |f| %>
+      <div class="form-control rounded-pill d-flex p-0">
+        <%= f.text_field :name, class: "border-0 form-control", id: "gameSearch-input" %>
+        <%= f.label      :name, class: "m-0 pr-2" do %>
+          <%= button_tag type: 'submit', class: "btn search-form__btn", id: "btn-search" do %>
+            <%= icon 'fas', 'search' %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- 検索説明文 -->
+    <p class="text-muted small mb-2">
+      略称(キーワード)検索がご利用いただけます。</br>
+      例：Fate/Grand Order は、「FGO」「フェイト」等でもヒットします。
+    </p>
+    <h6 id="search-caption" class="m-0">
+      <%= icon 'fas', 'caret-down' %> 検索しても見つからない場合…
+    </h6>
+    <!-- 説明文をクリックすると表示される部分 -->
+    <div id="search-caption__text" class="small mt-1">
+      <p class="mb-1">下記ボタンより、新規ゲームを登録することができます。</p>
         <%= link_to new_game_path do %>
-          <%= button_tag "登録する", type: 'button', class: "btn btn-okColor w-100" do %>
+          <%= button_tag "登録する", type: 'button', class: "btn btn-sm btn-okColor m-0" do %>
             <%= icon "fas", "plus" %> 登録する
           <% end %>
         <% end %>
@@ -33,15 +35,5 @@
   </div>
 </div>
 
-<div class="row">
-  <table class="table table-hover table-bordered col-9">
-    <thead class="thead-light">
-      <tr>
-        <th style="width:70%;">タイトル</th>
-        <th scope="col">最終更新日</th>
-      </tr>
-    </thead>
-    <tbody id="game-search-result">
-    </tbody>
-  </table>
+<div id="game-search-result" class="col-md-7 rounded mx-auto">
 </div>
