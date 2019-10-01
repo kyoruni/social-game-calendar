@@ -1,4 +1,8 @@
 class Game < ApplicationRecord
+  validates :name, presence: true
+  validates :color_id, presence: true
+  validates :textColor, presence: true
+
   # タグ機能を付ける
   acts_as_taggable
 
