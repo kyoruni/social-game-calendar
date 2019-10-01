@@ -1,0 +1,19 @@
+// イベント一覧の中身
+.event__caption {
+  font-size: 0.8rem;
+  &__button a {
+    color: $color-gray-dark;
+    &:hover {
+      color: $color-required;
+      transition-duration: 0.2s;
+    }
+  }
+  &__event {
+    &__head {
+      width: 10%;
+      &__icon {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

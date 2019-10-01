@@ -6,38 +6,53 @@
   <div class="game mb-3">
     <!-- 登録フォーム -->
       <%= form_with model: [ game, event ], class: "form-group search-form" do |f| %>
-        <!-- タイトル-->
+        <!-- タイトル -->
         <div class="form-group">
-          <div class="form-group__label">
-            <%= f.label      :title, 'タイトル', id: "event_title", class: "text-muted mb-0" %>
-            <span class="required rounded small mb-0 ml-1 mt-1 pr-1 pl-1">必須</span>
+          <!-- ラベルとメッセージ表示領域を内包するブロック-->
+          <div class="d-flex flex-row">
+            <!-- ラベル -->
+            <div class="form-group__label">
+              <%= f.label      :title, 'タイトル', id: "event_title", class: "text-muted mb-0" %>
+              <span class="required rounded small pr-1 pl-1">必須</span>
+            </div>
             <!-- 未入力時、メッセージを表示する領域 -->
-            <span class="required__text required__text__event-title small mt-1"></span>
+            <div class="form-group__message">
+              <span class="required__text required__text__event-title small ml-1 mt-1"></span>
+            </div>
           </div>
-          <%= f.text_field :title, class: "form-control rounded-pill mb-2",
-                                  placeholder: "イベント・キャンペーン名を入力してください", autocomplete: "off" %>
+          <%= f.text_field :title, class: "form-control rounded-pill mb-2", placeholder: "イベント・キャンペーン名を入力してください", autocomplete: "off" %>
         </div>
         <!-- 開始日時 -->
         <div class="form-group">
-          <div class="form-group__label">
-            <%= f.label :start, '開始日時', class: "text-muted mb-0" %>
-            <span class="required rounded small mb-0 ml-1 mt-1 pr-1 pl-1">必須</span>
+          <!-- ラベルとメッセージ表示領域を内包するブロック -->
+          <div class="d-flex flex-row">
+            <!-- ラベル -->
+            <div class="form-group__label">
+              <%= f.label :start, '開始日時', class: "text-muted mb-0" %>
+              <span class="required rounded small pr-1 pl-1">必須</span>
+            </div>
             <!-- 未入力時、メッセージを表示する領域 -->
-            <span class="required__text required__text__name small mt-1"></span>
+            <div class="form-group__message">
+              <span class="required__text required__text__event-start small ml-1 mt-1"></span>
+            </div>
           </div>
-          <%= f.datetime_select :start, {use_two_digit_numbers: true, datetime_separator: '　'},
-                                  class: 'form-control bootstrap-date' %>
+          <%= f.datetime_select :start, {use_two_digit_numbers: true, datetime_separator: '　'}, class: 'form-control bootstrap-date' %>
         </div>
         <!-- 終了日時 -->
         <div class="form-group">
-          <div class="form-group__label">
-            <%= f.label :end, '終了日時', class: "text-muted mb-0" %>
-            <span class="required rounded small mb-0 ml-1 mt-1 pr-1 pl-1">必須</span>
+          <!-- ラベルとメッセージ表示領域を内包するブロック -->
+          <div class="d-flex flex-row">
+            <!-- ラベル -->
+            <div class="form-group__label">
+              <%= f.label :end, '終了日時', class: "text-muted mb-0" %>
+              <span class="required rounded small pr-1 pl-1">必須</span>
+            </div>
             <!-- 未入力時、メッセージを表示する領域 -->
-            <span class="required__text required__text__name small mt-1"></span>
+            <div class="form-group__message">
+              <span class="required__text required__text__event-end small ml-1 mt-1"></span>
+            </div>
           </div>
-          <%= f.datetime_select :end, {use_two_digit_numbers: true, datetime_separator: '　'},
-                                  class: 'form-control bootstrap-date' %>
+          <%= f.datetime_select :end, {use_two_digit_numbers: true, datetime_separator: '　'}, class: 'form-control bootstrap-date' %>
         </div>
         <!-- ボタン -->
         <%= button_tag type: 'submit', id: "event-save-btn", class: "btn btn-okColor rounded-pill w-100" do %>

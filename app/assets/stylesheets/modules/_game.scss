@@ -38,6 +38,22 @@
   }
 }
 
+// ゲーム個別ページ
+.game-show {
+  // リンクの文字色
+  a {
+    color: $color-gray-dark;
+    &:hover {
+      color: $color-main-dark;
+      opacity: 0.6;
+      transition-duration: 0.3s;
+    }
+  }
+  &__title {
+    font-size: 1.5rem;
+  }
+}
+
 .badge-color {
   background: #7b7c80;
   color: #fff;

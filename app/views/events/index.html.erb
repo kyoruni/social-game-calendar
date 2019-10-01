@@ -1,44 +1,53 @@
 <%= render partial: "./layouts/game_menu", locals: { game: @game, game_id: params[:game_id] } %>
 <%= render partial: "./layouts/game_tags", locals: { game: @game } %>
 
-<div class="row">
-  <table class="table table-hover table-bordered">
-    <thead class="thead-light">
-      <tr>
-        <th>タイトル</th>
-        <th scope="col">開始</th>
-        <th scope="col">終了</th>
-        <% if user_signed_in? %>
-          <th></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-        <tr>
-          <th scope="row">
-            <%= event.title %>
-          </th>
-          <td>
+<div class="col-md-7 rounded mx-auto">
+  <h2 class="page-title mt-1">
+    <%= icon 'far', 'clock' %> イベント一覧
+  </h2>
+  <!-- 一覧ここから -->
+  <% @events.each do |event| %>
+    <div class="game mb-3">
+      <!-- タイトル -->
+      <h5 class="game__title mt-2">
+        <%= icon 'fas', 'caret-down' %> <%= event.title %>
+      </h5>
+
+      <div class="event__caption text-muted">
+        <!-- 最新イベント -->
+        <div class="event__caption__event d-flex">
+          <p class="event__caption__event__head mb-0">
+            <%= icon 'far', 'clock', class: "event__caption__event__head__icon" %> 開始
+          </p>
+          <p class="event__caption__event__body mb-0">
             <%= event.start.strftime("%Y-%m-%d　%H:%M") %>
-          </td>
-          <td>
+          </p>
+        </div>
+        <!-- 更新日 -->
+        <div class="event__caption__event d-flex">
+          <p class="event__caption__event__head mb-0">
+            <%= icon 'far', 'edit', class: "event__caption__event__head__icon" %> 終了
+          </p>
+          <p class="event__caption__event__body mb-0">
             <%= event.end.strftime("%Y-%m-%d　%H:%M") %>
-          </td>
+          </p>
+        </div>
+        <!-- 編集ボタン -->
+        <div class="event__caption__button">
           <% if user_signed_in? %>
             <td>
-              <div class="text-center">
-                <%= link_to edit_game_event_path(id: event.id, game_id: @game.id) do %>
-                  <button type="button" class="btn btn-edit btn-sm">編集</button>
+              <div class="text-right">
+                <%= link_to edit_game_event_path(id: event.id, game_id: @game.id), class: "mr-2" do %>
+                  <%= icon 'fas', 'edit', class: "pt-1" %> 編集する
                 <% end %>
                 <%= link_to game_event_path( @game,  event), method: :delete do %>
-                  <button type="button" class="btn btn-delete btn-sm">削除</button>
+                  <%= icon 'fas', 'trash-alt', class: "pt-1" %> 削除する
                 <% end %>
               </div>
             </td>
           <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
