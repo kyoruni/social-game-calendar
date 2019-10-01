@@ -1,27 +1,8 @@
-// 「必須」表記があるフォームのラベル
-.form-group__label {
-  position: relative;
-}
-
-// 「必須」表記
 .required {
   background: $color-required;
   color: $color-white;
   display: inline-block;
-  position: absolute;
-  top: 0;
   &__text {
     color: $color-red;
-    position: absolute;
-    top: 0;
-    &__name {
-      left: 110px;
-    }
-    &__color {
-      left: 160px;
-    }
-    &__event-title {
-      left: 115px;
-    }
   }
 }
