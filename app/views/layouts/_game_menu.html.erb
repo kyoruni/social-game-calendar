@@ -1,26 +1,31 @@
-<div class="row">
-  <h3 class="game-title">
-    <%= game.name %>
-  </h3>
-  <%= link_to game_path(game) do %>
-    <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
-    <span class="small">スケジュール</span>
-  <% end %>
-  <%= link_to game_events_path(game) do %>
-    <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
-    <span class="small">イベント一覧</span>
-  <% end %>
+<div class="row d-flex justify-content-between">
+  <div class="game-show">
+    <h3 class="game-show__title">
+      <%= game.name %>
+    </h3>
+  </div>
 
-  <% if user_signed_in? %>
-    <%= link_to new_game_event_path(game) do %>
-      <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
-      <span class="small">イベント登録</span>
+  <div class="game-show">
+    <%= link_to game_path(game) do %>
+      <%= icon 'far', 'calendar-alt', class:"pt-2 pl-2" %>
+      <span class="small">スケジュール</span>
     <% end %>
-    <%= link_to edit_game_path(game) do %>
-      <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
-      <span class="small">情報編集</span>
+    <%= link_to game_events_path(game) do %>
+      <%= icon 'far', 'clock', class:"pt-2 pl-2" %>
+      <span class="small">イベント一覧</span>
     <% end %>
-  <% end %>
 
-  <%= render partial: "./layouts/favorite_button", locals: { game: game, game_id: game.id } %>
+    <% if user_signed_in? %>
+      <%= link_to new_game_event_path(game) do %>
+        <%= icon 'fas', 'plus', class:"pt-2 pl-2" %>
+        <span class="small">イベント登録</span>
+      <% end %>
+      <%= link_to edit_game_path(game) do %>
+        <%= icon 'fas', 'wrench', class:"pt-2 pl-2" %>
+        <span class="small">情報編集</span>
+      <% end %>
+    <% end %>
+
+    <%= render partial: "./layouts/favorite_button", locals: { game: game, game_id: game.id } %>
+  </div>
 </div>
