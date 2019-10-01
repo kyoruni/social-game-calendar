@@ -8,13 +8,17 @@ class EventsController < ApplicationController
   end
 
   def new
-    @game = Game.find(params[:game_id])
+    @game  = Game.find(params[:game_id])
     @event = Event.new
   end
 
   def create
-    Event.create(event_params)
-    redirect_to game_path(id: game_params[:game_id])
+    @game = Event.new(event_params)
+    if @game.save
+      redirect_to game_path(id: game_params[:game_id])
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -24,8 +28,11 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.update(event_params)
-    redirect_to game_events_path(id: game_params[:game_id])
+    if event.update(event_params)
+      redirect_to game_events_path(id: game_params[:game_id])
+    else
+      render action: :edit
+    end
   end
 
   def destroy
