@@ -1,21 +1,50 @@
 $(document).on("turbolinks:load", function() {
+  // 「検索しても見つからない場合…」の文字をクリックすると、新規登録ボタンを表示
+  $("#search-caption").click(function() {
+    $("#search-caption__text").toggle("fast");
+  });
+
+  // 以下、検索ボタンの処理
   var gamelist = $("#game-search-result");
+
+  // 受け取った値が空文字なら、「未登録」を返す
+  function nvl(text) {
+    return text ? text : "未登録";
+  }
 
   function appendGame(game) {
     var updated_at = moment(game.updated_at);
-    var html = `
-      <tr>
-        <th scope="row"><a href="/games/${game.id}">${game.name}</a></th>
-        <td>${updated_at.format("YYYY-MM-DD HH:mm")}</td>
-      </tr>`;
+    var last_event = nvl(game.last_event); // イベントが登録されていない場合もあるため、空文字チェック
+    var html = `<div class="game mb-3">
+                  <h5 class="game__title mt-2">
+                    <font color="${
+                      game.color
+                    }"><i class="fas fa-gamepad"></i></font>
+                    <a href="/games/${game.id}">${game.name}</a>
+                  </h5>
+                  <div class="game__caption text-muted">
+                    <div class="game__caption__event d-flex">
+                      <p class="game__caption__event__head mb-0">
+                        <i class="far fa-clock game__caption__event__head__icon"></i> 最新イベント
+                      </p>
+                      <p class="game__caption__event__body mb-0">
+                        ${last_event}
+                      </p>
+                  </div>
+                  <div class="game__caption__event d-flex">
+                    <p class="game__caption__event__head mb-0">
+                      <i class="fas fa-edit game__caption__event__head__icon"></i> 最終更新
+                    </p>
+                    <p class="game__caption__event__body mb-0">
+                      ${updated_at.format("YYYY-MM-DD HH:mm")}
+                    </p>
+                  </div>
+                </div>`;
     $(gamelist).append(html);
   }
 
   function appendErrorMessage() {
-    var html = `<tr>
-                  <th scope="row">一致するゲームが見つかりませんでした</th>
-                  <td></td>
-                </tr>`;
+    var html = "<p>一致するゲームが見つかりませんでした。</p>";
     $(gamelist).append(html);
   }
 

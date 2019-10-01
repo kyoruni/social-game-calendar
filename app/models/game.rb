@@ -4,13 +4,18 @@ class Game < ApplicationRecord
 
   has_many :events, dependent: :destroy
 
-  # Gameモデルはfavoritesとつながる
+
+  # GameモデルはFavoritesとつながる
   has_many :favorites, dependent: :destroy
 
   # GameモデルはFavoriteを通して、複数のUserモデルとつながる
   has_many :users, through: :favorites
 
   belongs_to :color
+
+  def event_exist?
+    events.present?
+  end
 
   def last_event
     last_event = events.order("start DESC").limit(1)
