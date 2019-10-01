@@ -1,0 +1,16 @@
+// 検索フォームのボタン
+.search-form__btn:hover {
+  color: #ef367f;
+  transition-duration: 0.2s;
+}
+
+// 検索画面の説明文
+#search-caption {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+// 新規登録ボタン：初期表示では隠しておく
+#search-caption__text {
+  display: none;
+}
