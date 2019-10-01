@@ -13,7 +13,16 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.save
+    if @game.save
+      redirect_to :root
+    else
+      render action: :new
+    end
+  end
+
+  def destroy
+    game = Game.find(params[:id])
+    game.destroy
     redirect_to :root
   end
 
