@@ -7,7 +7,7 @@
     <!-- 検索フォーム -->
     <%= form_with class: "form-group search-form", method: :get do |f| %>
       <div class="form-control rounded-pill d-flex p-0">
-        <%= f.text_field :name, class: "border-0 form-control", id: "gameSearch-input" %>
+        <%= f.text_field :name, class: "border-0 form-control", id: "gameSearch-input", autocomplete: "off" %>
         <%= f.label      :name, class: "m-0 pr-2" do %>
           <%= button_tag type: 'submit', class: "btn search-form__btn", id: "btn-search" do %>
             <%= icon 'fas', 'search' %>
