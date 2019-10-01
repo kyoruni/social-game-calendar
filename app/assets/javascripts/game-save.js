@@ -22,10 +22,4 @@ $(document).on("turbolinks:load", function() {
     name_input_check();
     color_input_check();
   });
-
-  // 更新ボタン押下時、入力チェックする
-  $("#game-update-btn").click(function() {
-    name_input_check();
-    color_input_check();
-  });
 });
