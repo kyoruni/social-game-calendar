@@ -1,0 +1,43 @@
+.sign-in-form {
+  background: $color-white;
+  text-align: center;
+}
+
+// デフォルトのチェックボックスだとpaddingが入っているので、位置ずれを修正するためにリセット
+.checkbox {
+  padding: 0;
+}
+
+.login-form,
+.login-form:focus {
+  background: $color-background;
+}
+
+// 見出しに下線を引く
+.login-title {
+  display: inline-block;
+  border-bottom: solid 1px $color-gray;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+// devise 部分テンプレートのリンクの色
+.link-text {
+  font-size: 1rem;
+  color: $color-main;
+  &:hover {
+    color: $color-main-dark;
+  }
+}
+
+// ログインボタン
+.btn-login {
+  background: $color-main;
+  color: $color-white;
+  transition-duration: 0.3s;
+  &:hover {
+    color: $color-white;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
+}
