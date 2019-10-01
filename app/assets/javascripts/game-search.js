@@ -7,8 +7,14 @@ $(document).on("turbolinks:load", function() {
   // 以下、検索ボタンの処理
   var gamelist = $("#game-search-result");
 
+  // 受け取った値が空文字なら、「未登録」を返す
+  function nvl(text) {
+    return text ? text : "未登録";
+  }
+
   function appendGame(game) {
     var updated_at = moment(game.updated_at);
+    var last_event = nvl(game.last_event); // イベントが登録されていない場合もあるため、空文字チェック
     var html = `<div class="game mb-3">
                   <h5 class="game__title mt-2">
                     <font color="${
@@ -22,7 +28,7 @@ $(document).on("turbolinks:load", function() {
                         <i class="far fa-clock game__caption__event__head__icon"></i> 最新イベント
                       </p>
                       <p class="game__caption__event__body mb-0">
-                        ${game.last_event}
+                        ${last_event}
                       </p>
                   </div>
                   <div class="game__caption__event d-flex">
