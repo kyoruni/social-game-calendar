@@ -33,8 +33,11 @@ class GamesController < ApplicationController
 
   def update
     game = Game.find(params[:id])
-    game.update(game_params)
-    redirect_to :root
+    if game.update(game_params)
+      redirect_to :root
+    else
+      render action: :edit
+    end
   end
 
   def show
