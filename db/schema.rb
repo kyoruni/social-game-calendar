@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_051857) do
+ActiveRecord::Schema.define(version: 2019_10_01_102341) do
 
   create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_051857) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "color_id"
+    t.bigint "color_id", null: false
     t.string "textColor", null: false
     t.index ["color_id"], name: "index_games_on_color_id"
     t.index ["name"], name: "index_games_on_name", unique: true
