@@ -58,8 +58,8 @@ $(document).on("turbolinks:load", function() {
     })
       .done(function(games) {
         $(gamelist).empty();
-        // 検索欄に入力あり＋検索結果がある場合のみ、検索結果を表示する
-        if (input.length !== 0 && games.length !== 0) {
+        // 検索結果がある場合のみ、検索結果を表示する
+        if (games.length !== 0) {
           games.forEach(function(game) {
             appendGame(game);
           });
