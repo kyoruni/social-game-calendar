@@ -36,9 +36,9 @@
       <% end %>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <%= link_to help_path, class: "nav-link" do %>
           <%= icon 'fas', 'question' %> ヘルプ
-        </a>
+        <% end %>
       </li>
 
       <% if user_signed_in? %>
