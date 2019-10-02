@@ -59,23 +59,6 @@
   color: $color-white;
 }
 
-.btn-edit {
-  background: $color-edit;
-  color: $color-white;
-}
-
-.btn-delete {
-  background: $color-delete;
-  color: $color-white;
-}
-
-.btn-edit:hover,
-.btn-delete:hover {
-  color: $color-white;
-  opacity: 0.6;
-  transition-duration: 0.3s;
-}
-
 .bootstrap-date {
   width: auto;
   display: inline-block;
