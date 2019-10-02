@@ -39,9 +39,8 @@
 
 // 覗いてみるボタン
 .btn-showColor {
+  @extend .btn-okColor;
   background: $color-pink;
-  color: #fff;
-  transition-duration: 0.3s;
 }
 
 // 登録するボタンと覗いてみるボタン ちょっと明るくする
