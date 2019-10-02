@@ -1,0 +1,14 @@
+.help-section {
+  font-size: 1rem;
+  font-weight: bold;
+  &__sub {
+    font-size: 0.8rem;
+  }
+  &__text {
+    font-size: 0.8rem;
+  }
+}
+
+.help-caption {
+  display: none;
+}

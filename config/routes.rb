@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:index]
   end
 
+  # ヘルプページ
+  resource :help, only: [:show]
+
   # ルートの設定
   #  ログインしていたら、users#show
   #  ログインしていなかったら、games#index
