@@ -33,7 +33,7 @@
 // 登録するボタン
 .btn-okColor {
   background: $color-ok;
-  color: #fff;
+  color: $color-white;
   transition-duration: 0.3s;
 }
 
@@ -46,7 +46,7 @@
 // 登録するボタンと覗いてみるボタン ちょっと明るくする
 .btn-okColor:hover,
 .btn-showColor:hover {
-  color: #fff;
+  color: $color-white;
   opacity: 0.6;
   transition-duration: 0.3s;
 }

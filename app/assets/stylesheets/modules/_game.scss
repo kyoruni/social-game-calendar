@@ -55,23 +55,23 @@
 }
 
 .badge-color {
-  background: #7b7c80;
-  color: #fff;
+  background: $color-badge;
+  color: $color-white;
 }
 
 .btn-edit {
-  background: #849cbe;
-  color: #fff;
+  background: $color-edit;
+  color: $color-white;
 }
 
 .btn-delete {
-  background: #fe7874;
-  color: #fff;
+  background: $color-delete;
+  color: $color-white;
 }
 
 .btn-edit:hover,
 .btn-delete:hover {
-  color: #fff;
+  color: $color-white;
   opacity: 0.6;
   transition-duration: 0.3s;
 }
