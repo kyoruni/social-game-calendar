@@ -1,18 +1,19 @@
 <div class="sign-in-form w-50 rounded mx-auto">
-  <h2 class="login-title mt-3">ログイン</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+<h2 class="login-title mt-3">ログイン</h2>
+  <!-- フォームここから -->
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="col-md-9 mx-auto mt-3 mb-3">
+      <!-- メールアドレス -->
       <div class="form-group">
         <%= f.label       :email, class: "text-muted" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
       </div>
-
+      <!-- パスワード -->
       <div class="form-group">
         <%= f.label          :password, class: "text-muted" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control login-form rounded-pill" %>
       </div>
-
+      <!-- ログインを記憶 -->
       <% if devise_mapping.rememberable? %>
         <div class="form-group">
           <div class="d-flex justify-content-center">
@@ -23,13 +24,13 @@
           </div>
         </div>
       <% end %>
-
+      <!-- ログインボタン -->
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-login btn-block rounded-pill" %>
       </div>
     </div>
-    <div class="mb-3">
-      <%= render "devise/shared/links" %>
-    </div>
   <% end %>
+  <div class="mb-3">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
