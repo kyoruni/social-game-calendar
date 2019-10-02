@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def show
     # 自分がお気に入り登録しているゲームを取得
     favorite_games = current_user.games

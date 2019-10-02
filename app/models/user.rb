@@ -5,7 +5,7 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
 
   # UserモデルはFavoritesとつながる
-  #  User削除したら、お気に入りテーブルも削除
+  # User削除したら、お気に入りテーブルも削除
   has_many :favorites, dependent: :destroy
 
   # UserモデルはFavoriteを通して、複数のGameモデルとつながる

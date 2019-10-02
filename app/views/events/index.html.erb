@@ -1,6 +1,5 @@
 <%= render partial: "./layouts/game_menu", locals: { game: @game, game_id: params[:game_id] } %>
 <%= render partial: "./layouts/game_tags", locals: { game: @game } %>
-
 <div class="col-md-7 rounded mx-auto">
   <h2 class="page-title mt-1">
     <%= icon 'far', 'clock' %> イベント一覧
@@ -12,7 +11,6 @@
       <h5 class="game__title mt-2">
         <%= icon 'fas', 'caret-down' %> <%= event.title %>
       </h5>
-
       <div class="event__caption text-muted">
         <!-- 最新イベント -->
         <div class="event__caption__event d-flex">

@@ -1,13 +1,14 @@
 class GamesController < ApplicationController
   # index show search以外、非ログイン時はindexに飛ばす
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_game,      only:   [:edit, :update, :show]
+  before_action :set_color,     only:   [:new, :edit]
 
   def index
     @games = Game.all
   end
 
   def new
-    @colors = Color.order("id ASC")
     @game   = Game.new
   end
 
@@ -20,20 +21,11 @@ class GamesController < ApplicationController
     end
   end
 
-  def destroy
-    game = Game.find(params[:id])
-    game.destroy
-    redirect_to :root
-  end
-
   def edit
-    @colors = Color.order("id ASC")
-    @game   = Game.find(params[:id])
   end
 
   def update
-    game = Game.find(params[:id])
-    if game.update(game_params)
+    if @game.update(game_params)
       redirect_to :root
     else
       render action: :edit
@@ -41,7 +33,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game   = Game.find(params[:id])
     @events = @game.events
     respond_to do |format|
       format.html
@@ -59,6 +50,14 @@ class GamesController < ApplicationController
   end
 
   private
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  def set_color
+    @colors = Color.order("id ASC")
+  end
+
   def game_params
     params.require(:game).permit(:name, :color_id, :textColor, :tag_list)
   end

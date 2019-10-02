@@ -55,25 +55,8 @@
 }
 
 .badge-color {
-  background: #7b7c80;
-  color: #fff;
-}
-
-.btn-edit {
-  background: #849cbe;
-  color: #fff;
-}
-
-.btn-delete {
-  background: #fe7874;
-  color: #fff;
-}
-
-.btn-edit:hover,
-.btn-delete:hover {
-  color: #fff;
-  opacity: 0.6;
-  transition-duration: 0.3s;
+  background: $color-badge;
+  color: $color-white;
 }
 
 .bootstrap-date {

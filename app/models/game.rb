@@ -17,10 +17,12 @@ class Game < ApplicationRecord
 
   belongs_to :color
 
+  # イベントが登録されているかチェック
   def event_exist?
     events.present?
   end
 
+  # ゲームに紐づいている、最新のイベントを取得
   def last_event
     last_event = events.order("start DESC").limit(1)
     return last_event[0]

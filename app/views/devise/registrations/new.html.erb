@@ -1,39 +1,40 @@
 <div class="sign-in-form w-50 rounded mx-auto">
   <h2 class="login-title mt-3">新規登録</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="col-md-9 mx-auto mt-3 mb-3">
-        <div class="form-group">
-          <%= f.label      :name, class: "text-muted" %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label       :email, class: "text-muted" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
-        </div>
-
-        <div class="form-group">
-          <div class="d-flex justify-content-center">
-            <%= f.label :password, class: "text-muted" %>
-              <% if @minimum_password_length %>
-                <em class="text-muted">(<%= @minimum_password_length %>文字以上)</em>
-              <% end %><br />
-          </div>
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control login-form rounded-pill" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label          :password_confirmation, class: "text-muted" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control login-form rounded-pill mb-1" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "登録する", class: "btn btn-login btn-block rounded-pill" %>
-        </div>
+  <!-- フォームここから -->
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="col-md-9 mx-auto mt-3 mb-3">
+      <!-- 名前 -->
+      <div class="form-group">
+        <%= f.label      :name, class: "text-muted" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
       </div>
-    <% end %>
+      <!-- メールアドレス -->
+      <div class="form-group">
+        <%= f.label       :email, class: "text-muted" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control login-form rounded-pill" %>
+      </div>
+      <!-- パスワード -->
+      <div class="form-group">
+        <div class="d-flex justify-content-center">
+          <%= f.label :password, class: "text-muted" %>
+            <% if @minimum_password_length %>
+              <em class="text-muted">(<%= @minimum_password_length %>文字以上)</em>
+            <% end %><br />
+        </div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control login-form rounded-pill" %>
+      </div>
+      <!-- 確認用パスワード -->
+      <div class="form-group">
+        <%= f.label          :password_confirmation, class: "text-muted" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control login-form rounded-pill mb-1" %>
+      </div>
+      <!-- 登録ボタン -->
+      <div class="actions">
+        <%= f.submit "登録する", class: "btn btn-login btn-block rounded-pill" %>
+      </div>
+    </div>
+  <% end %>
   <div class="mb-3">
     <%= render "devise/shared/links" %>
   </div>
