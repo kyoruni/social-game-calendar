@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   # index show search以外、非ログイン時はindexに飛ばす
   before_action :move_to_index, except: [:index, :show, :search]
-  before_action :set_game,      only:   [:destroy, :edit, :update, :show]
+  before_action :set_game,      only:   [:edit, :update, :show]
   before_action :set_color,     only:   [:new, :edit]
 
   def index
@@ -19,11 +19,6 @@ class GamesController < ApplicationController
     else
       render action: :new
     end
-  end
-
-  def destroy
-    @game.destroy
-    redirect_to :root
   end
 
   def edit
