@@ -1,3 +1,50 @@
-<div class="row">
-  ようこそ！
-</div>
+<div class="col-md-7 rounded mx-auto">
+  <div class="game mb-3">
+    <!-- 見出し1 -->
+    <div class="site-title">
+      <h2 class="site-title__text mb-5">Social Game Calendarへようこそ！</h2>
+    </div>
+    <!-- section1 -->
+    <div class="text-center">
+      <h3 class="toppage-section__head">Sosial Game Calendar(ソシャゲカレンダー)とは？</h3>
+      <h6 class="toppage-section__body">スマホゲームの、期間限定イベントのスケジュールをWeb上で確認できるカレンダーです！</h6>
+    </div>
+    <div class="toppage-section__image image1 w-50 rounded mx-auto mb-4">
+      <%= image_tag "top1.png", class: "w-100" %>
+    </div>
+    <!-- 見出し2 -->
+    <h3 class="toppage-section__head toppage-section__head__sub text-center mb-5 mt-5">▼ ログインするとできること ▼</h3>
+    <!-- section2 -->
+    <div class="text-center">
+      <h6 class="toppage-section__head">遊んでいるゲームをお気に入り登録</h6>
+      <div class="toppage-section__image image2 w-50 rounded mx-auto mb-5">
+        <%= image_tag "top2.png", class: "w-100" %>
+      </div>
+    </div>
+    <!-- section3 -->
+    <div class="text-center">
+      <h6 class="toppage-section__head">ゲーム情報を登録</h3>
+      <div class="toppage-section__image image1 w-50 rounded mx-auto mb-5">
+        <%= image_tag "top3.png", class: "w-100" %>
+      </div>
+    </div>
+    <!-- section4 -->
+    <div class="text-center">
+      <h6 class="toppage-section__head">ゲームのイベント情報を登録</h3>
+      <h6 class="toppage-section__text">登録したイベントは、カレンダーで一覧表示</h6>
+      <div class="toppage-section__image image2 w-50 rounded mx-auto mb-5">
+        <%= image_tag "top4.png", class: "w-100" %>
+      </div>
+    </div>
+    <!-- section5 -->
+    <div class="text-center">
+      <h6 class="toppage-section__text">などなど…今後も便利な機能を追加していく予定です。</h6>
+      <%= link_to new_user_registration_path do %>
+        <%= button_tag "登録して使ってみる！", type: 'button', class: "btn btn-sm btn-okColor m-0" %>
+      <% end %>
+      <%= link_to search_games_path do %>
+        <%= button_tag "試しに覗いてみる！", type: 'button', class: "btn btn-sm btn-showColor m-0" %>
+      <% end %>
+    </div>
+  </div>
+<div>
