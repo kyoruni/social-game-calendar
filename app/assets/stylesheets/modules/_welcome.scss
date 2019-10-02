@@ -1,0 +1,53 @@
+.site-title {
+  text-align: center;
+  &__text {
+    display: inline-block;
+    background: linear-gradient(transparent 70%, $color-main-light 70%);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.toppage-section {
+  &__head {
+    font-size: 1rem;
+    font-weight: bold;
+    &__sub {
+      color: $color-required;
+    }
+  }
+  &__body {
+    font-size: 0.9rem;
+  }
+}
+
+// 画像の背景色
+.image1 {
+  background: $color-pink;
+}
+
+.image2 {
+  background: $color-main-light;
+}
+
+// 登録するボタン
+.btn-okColor {
+  background: $color-ok;
+  color: #fff;
+  transition-duration: 0.3s;
+}
+
+// 覗いてみるボタン
+.btn-showColor {
+  background: $color-pink;
+  color: #fff;
+  transition-duration: 0.3s;
+}
+
+// 登録するボタンと覗いてみるボタン ちょっと明るくする
+.btn-okColor:hover,
+.btn-showColor:hover {
+  color: #fff;
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
