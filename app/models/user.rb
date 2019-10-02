@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-  # Userモデルはfavoritesとつながる
-  has_many :favorites
+  # UserモデルはFavoritesとつながる
+  #  User削除したら、お気に入りテーブルも削除
+  has_many :favorites, dependent: :destroy
 
   # UserモデルはFavoriteを通して、複数のGameモデルとつながる
   has_many :games, through: :favorites
-  # has_many :favorite_games, through: :relationships, source: :game
 
   # お気に入り確認 / 既にお気に入り登録していたらtrue、していなければfalse
   def liked?(liked_game)
