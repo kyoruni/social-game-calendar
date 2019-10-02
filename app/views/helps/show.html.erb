@@ -1,0 +1,152 @@
+<div class="col-md-7 rounded mx-auto">
+  <h2 class="page-title mt-1">
+    <%= icon 'fas', 'question' %> ヘルプ
+  </h2>
+  <div class="game mb-3">
+    <!-- Social Game Calendarとは -->
+    <h6 class="help-section"><%= icon 'fas', 'caret-down' %> Social Game Calendarとは</h6>
+    <ul class="help-caption">
+      <li class="help-section__text mb-3">
+        <span class="font-weight-bold">Social Game Calendar(以下、ソシャゲカレンダー)</span>
+        は、Web上でスマホゲームのイベントスケジュールを確認できるサイトです。
+      </li>
+      <li class="help-section__text mb-5">
+        たくさんのスマホゲームを掛け持ちして遊んでいるとありがちな
+        <span class="font-weight-bold">
+          「あのゲームのイベント何日からだっけ？」「あと何日で走れば良いんだっけ？」「あのゲームのイベントすっかり忘れてた！」
+        </span>
+        を解決します！
+      </li>
+      <li class="help-section__text mb-3">
+        開発：野菜 <%= link_to "@turnip_leaf", "https://twitter.com/turnip_leaf", target: :_blank %>
+      </li>
+    </ul>
+    <!-- アカウント -->
+    <h6 class="help-section"><%= icon 'fas', 'caret-down' %> アカウント</h6>
+    <ul class="help-caption">
+      <!-- アカウント登録 -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> アカウント登録</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">ソシャゲカレンダーのアカウント登録は<span class="font-weight-bold">無料</span>です。
+          PC、スマートフォン、タブレットでご利用いただけます！</li>
+          <li class="help-section__text mb-3">登録は<%= link_to "こちらのページ", new_user_registration_path %>から行うことができます。</li>
+        </ul>
+        <!-- アカウント情報編集 -->
+        <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> アカウント情報編集</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">準備中です！</li>
+        </ul>
+      </li>
+      <!-- アカウント削除 -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> アカウント削除</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">準備中です！</li>
+        </ul>
+      </li>
+    </ul>
+    <!-- ホーム画面 -->
+    <h6 class="help-section"><%= icon 'fas', 'caret-down' %> ホーム画面</h6>
+    <ul class="help-caption">
+      <li class="help-section__text mb-3">
+        ホーム画面では、お気に入り登録したゲーム全てのイベントをカレンダーで確認することができます。
+      </li>
+      <li class="help-section__text mb-3">
+        <%= image_tag 'help1.png', class: "w-100" %>
+      </li>
+      <li class="help-section__text mb-5">
+        今後、以下の機能を作成予定です。<br />
+        ・ユーザーごとに、個人のスケジュールを登録できる機能<br />
+        ・ユーザーごとに、各ゲームの表示色を任意で設定できる機能<br />
+        ・カレンダーの週間表示
+      </li>
+    </ul>
+    <!-- 基本的な使い方 -->
+    <h6 class="help-section"><%= icon 'fas', 'caret-down' %> 基本的な使い方</h6>
+    <ul class="help-caption">
+      <!-- ステップ1 -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> Step.1 ゲームをさがす</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">
+            <%= link_to "ゲームをさがす", search_games_path %>より、検索ページを表示します。<br />
+            ゲームのタイトルまたはキーワードで検索することができます。
+          </li>
+          <li class="help-section__text mb-5">
+            例：検索キーワード「アイマス」で、アイマス関連のゲームがヒットします。<br />
+            <%= image_tag 'help2.png', class: "w-100" %>
+          </li>
+        </ul>
+      </li>
+      <!-- ステップ2 -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> Step.2 ゲームをお気に入り登録する</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">
+            <font color="red">！！この機能はアカウント登録すると使用可能になります！！</font><br />
+            検索結果より、各ゲームの個別ページへ進みます。
+          </li>
+          <li class="help-section__text mb-3">
+            個別ページ上部の「お気に入り登録」より、ゲームをお気に入りに登録することができます。<br />
+            <%= image_tag 'help3.png', class: "w-100" %>
+          </li>
+          <li class="help-section__text mb-5">
+            お気に入り登録したゲームは、お気に入り一覧画面より確認できます。
+          </li>
+        </ul>
+      </li>
+      <!-- ステップ3 -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> Step.3 イベントを登録する</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-3">
+            <font color="red">！！この機能はアカウント登録すると使用可能になります！！</font><br />
+            ゲーム個別ページ上部の「イベント登録」より、そのゲームへイベントを登録することができます。<br />
+            <%= image_tag 'help4.png', class: "w-100" %>
+          </li>
+          <li class="help-section__text mb-3">
+            イベントのタイトルと開始日時を入力して、登録してください。<br />
+            登録したイベントがカレンダーに反映されます。
+          </li>
+          <li class="help-section__text mb-5">
+            今後、以下の機能を作成予定です。<br />
+            ・開始及び終了日時を、小窓より入力できる機能<br />
+            ・マイページ及びゲーム個別ページのカレンダー上で、クリックした日にイベント登録できる機能
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- よくある質問 -->
+    <h6 class="help-section"><%= icon 'fas', 'caret-down' %> よくある質問</h6>
+    <ul class="help-caption">
+      <!-- あのゲームが見つからない！ -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> あのゲームが見つからない！</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-1">
+            ・タイトル検索、またはキーワード検索をお試しください。<br />
+            ・キーワード入力欄が未入力の状態で検索を実行すると、登録されている全てのゲームが五十音順で一覧表示されます。
+          </li>
+          <li class="help-section__text mb-5">
+            ・それでも見つからなかった場合、「新規登録する」のボタンよりゲームの登録をお願いいたします。
+          </li>
+        </ul>
+      </li>
+      <!-- イベントの情報が誤っているのですが… -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> イベントの情報が誤っているのですが…</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-1">
+            ・掲載している情報は、緊急メンテナンスで変更になった場合等最新版でない場合があります。<br />
+            最新の情報は、各ゲームの公式サイトまたは公式Twitterアカウントの告知ツイート等でご確認ください。
+          </li>
+          <li class="help-section__text mb-5">
+            ・誤っている情報が掲載されていた場合、イベント一覧の「編集する」リンクより修正していただくこともできます。
+          </li>
+        </ul>
+      </li>
+      <!-- その他お問い合わせ -->
+      <li class="help-section help-section__sub ml-3"><%= icon 'fas', 'caret-down' %> その他お問い合わせ</li>
+        <ul class="help-caption ml-3">
+          <li class="help-section__text mb-1">
+            準備中です！
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
