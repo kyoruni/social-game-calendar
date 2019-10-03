@@ -24,9 +24,6 @@ $(function() {
               basicWeek: false,
               default: true
             },
-            dayClick: function(date) {
-              alert(date);
-            },
             events: event // 受け取ったjsonの中身全部表示
           });
         })
