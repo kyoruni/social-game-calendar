@@ -1,24 +1,58 @@
-# README
+# social-game-calendar（ソシャゲカレンダー）
+URL：https://social-game-calendar.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### テスト用アカウント
+- ユーザー1 / mail： test1@test.com / pass： 11111111 ※1が8個
+- ユーザー2 / mail： test2@test.com / pass： 22222222 ※2が8個
 
-Things you may want to cover:
+## 概要
+スマホゲーム（ソーシャルゲーム）の期間限定イベントを、一覧表示して確認できるWebアプリです。
 
-* Ruby version
+## 何故作ったか？
+個人制作をするにあたってのテーマとして、「自分と、周囲の近しい人達の課題解決をしたい！」を挙げました。
 
-* System dependencies
+ターゲットを身近な人達に絞ることにより、以下の効果に期待できると考えます。
+- ゴールが分かりやすい ・・・ 身近な不便を便利にする！
+- 周囲から意見をヒアリングできる ・・・ 必要な機能を短時間で絞り込める！
+- 使ってくれる人を確保できる ・・・ モチベーションup
 
-* Configuration
+## 課題
+- スマホゲームを掛け持ちで遊んでいる人が多い（自分含む）
+- 絶え間なく開催される期間限定イベント
+- 掛け持ちしていると、今どのゲームで何のイベント中なのか分からなくなる
+- ゲームごとに分類してスケジューラーに打ち込んでいたが、面倒になってやめてしまった
 
-* Database creation
+解決法1 → 遊んでいるゲームのイベント一覧を、一覧表示できるようにする  
+解決法2 → 他の人が入力した情報を、ユーザー皆で共有する
 
-* Database initialization
+## 使い方
+- 「ゲームをさがす」より検索
+- 遊んでいるゲームをお気に入り登録
+- マイページに、お気に入り登録したゲームのイベントが表示される
 
-* How to run the test suite
+- 遊んでいるゲームが見つからなかった場合、登録フォームよりゲームの作成が行えます。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 使用技術
+### フロントエンド
+- bootstrap4・・・全体のデザイン及びレスポンシブ化
+- JavaScript（jQuery）・・・カレンダー表示、お気に入り・検索機能のajax処理
+- font-awesome・・・アイコン
+- fullcalendar-rails、moment-js・・・カレンダー表示
 
-* ...
+### サーバーサイド
+- Ruby on Rails 5.2.3
+- ユーザー登録、編集、削除機能（gem deviseを使用）
+- ゲームの登録、編集機能
+- ゲームの検索機能・・・タイトル及び略称、愛称で検索（gem acts-as-taggable-onを使用）
+- ゲームをお気に入り登録する機能
+- イベントの登録、編集、削除機能
+- 初期データ投入（gem seed-fuを使用）
+
+### インフラ
+- herokuを使用使用
+- DB：PostgreSQL
+- ドメイン取得後、AWS E3に移行予定
+
+## 画面イメージ
+[![Image from Gyazo](https://i.gyazo.com/aff449a08ba4eaa4f9e7234348a2baea.png)](https://gyazo.com/aff449a08ba4eaa4f9e7234348a2baea)
