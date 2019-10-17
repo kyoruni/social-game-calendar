@@ -46,8 +46,6 @@ GEM
       activerecord (~> 5.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     autoprefixer-rails (9.6.1.1)
       execjs
@@ -71,9 +69,6 @@ GEM
       xpath (~> 3.2)
     childprocess (2.0.0)
       rake (< 13.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -96,6 +91,13 @@ GEM
     diff-lcs (1.3)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (5.1.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
+    faker (2.6.0)
+      i18n (>= 1.6, < 1.8)
     ffi (1.11.1)
     font-awesome-sass (5.9.0)
       sassc (>= 1.11)
@@ -107,7 +109,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -165,6 +166,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.3)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -256,6 +261,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (3.9.4)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -271,11 +280,12 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   byebug
   capybara (>= 2.15)
-  chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   devise-i18n
   devise-i18n-views
+  factory_bot_rails
+  faker
   font-awesome-sass (~> 5.9.0)
   fullcalendar-rails
   jbuilder (~> 2.5)
@@ -287,6 +297,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails-controller-testing
   rspec-rails
   sass-rails (~> 5.0)
   seed-fu
@@ -298,6 +309,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webdrivers (~> 3.0)
 
 RUBY VERSION
    ruby 2.5.1p57
