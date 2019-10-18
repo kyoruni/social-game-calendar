@@ -72,12 +72,24 @@ describe User do
 
     describe '入力値チェック' do
       it "パスワードと確認用パスワードが異なる場合、登録できない" do
+        password              = "12345678"
+        password_confirmation = "02345678"
+        user                  = build(:user, password: password, password_confirmation: password_confirmation )
+        user.valid?
+        expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
       end
   
       it "メールアドレスが既に登録されている場合、登録できない" do
+        user1 = create(:user)
+        user2 = build(:user)
+        user2.valid?
+        expect(user2.errors[:email]).to include("はすでに存在します")
       end
   
       it "メールアドレスが不正な場合、登録できない" do
+        user = build(:user, email: "aiueoaiueo" )
+        user.valid?
+        expect(user.errors[:email]).to include("は不正な値です")
       end
     end
   end
