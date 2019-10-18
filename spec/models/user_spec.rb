@@ -19,10 +19,22 @@ describe User do
     end
 
     describe '境界値チェック' do
+      it "名前が100文字の場合、登録できる" do
+      end
+
+      it "名前が101文字の場合、登録できる" do
+      end
+
       it "パスワードが7文字の場合、登録できない" do
       end
   
       it "パスワードが8文字の場合、登録できる" do
+      end
+
+      it "パスワードが128文字の場合、登録できる" do
+      end
+
+      it "パスワードが129文字の場合、登録できない" do
       end
     end
 
