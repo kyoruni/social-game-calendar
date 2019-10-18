@@ -34,21 +34,39 @@ describe User do
 
     describe '境界値チェック' do
       it "名前が100文字の場合、登録できる" do
+        user = build(:user, name: "あ" * 100)
+        expect(user).to be_valid
       end
 
-      it "名前が101文字の場合、登録できる" do
+      it "名前が101文字の場合、登録できない" do
+        user = build(:user, name: "あ" * 101)
+        user.valid?
+        expect(user.errors[:name]).to include("は100文字以内で入力してください")
       end
 
       it "パスワードが7文字の場合、登録できない" do
+        user = build(:user, password: "1" * 7)
+        user.valid?
+        expect(user.errors[:password]).to include("は8文字以上で入力してください")
       end
   
       it "パスワードが8文字の場合、登録できる" do
+        password = "1" * 8
+        user = build(:user, password: password, password_confirmation: password )
+        expect(user).to be_valid
       end
 
       it "パスワードが128文字の場合、登録できる" do
+        password = "1" * 128
+        user = build(:user, password: password, password_confirmation: password )
+        expect(user).to be_valid
       end
 
       it "パスワードが129文字の場合、登録できない" do
+        password = "1" * 129
+        user = build(:user, password: password, password_confirmation: password )
+        user.valid?
+        expect(user.errors[:password]).to include("は128文字以内で入力してください")
       end
     end
 
