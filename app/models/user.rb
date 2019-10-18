@@ -11,6 +11,10 @@ class User < ApplicationRecord
   # UserモデルはFavoriteを通して、複数のGameモデルとつながる
   has_many :games, through: :favorites
 
+  # バリデーション
+  validates :name,  presence: true
+  validates :name,  length: { maximum: 100 }
+
   # お気に入り確認 / 既にお気に入り登録していたらtrue、していなければfalse
   def liked?(liked_game)
     self.games.include?(liked_game)
